@@ -10,12 +10,12 @@
 ## The Sufferfest programming challenge
 Create a react component that displays the graph for The Rookie workout. It should look something like this: https://www.dropbox.com/s/fr05drp3jrn2rgg/Screenshot%202016-07-19%2014.40.46.png?dl=0
 
-# Clone this repo. https://github.com/TheSufferfest/electron-react-boilerplate
-# You can find the data for The Rookie in the data folder.
-# Feel free to ask questions. You can find me as reid on the atomio.slack.com channel.
-# Submit a pull request to this repo showing your work and how to test it.
+1. Clone this repo. https://github.com/TheSufferfest/electron-react-boilerplate
+1. You can find the data for The Rookie in the app/data folder.
+1. Feel free to ask questions. You can find me as reid on the atomio.slack.com channel.
+1. Submit a pull request to this repo showing your work and how to test it.
 
-This fork is modified to add data for the chart and to update this readme. Everything below is from the original project. 
+This fork is modified to add data for the chart, stub out the chart container and component and to update this readme. Everything below is from the original project. 
 
 > Live editing development on desktop app
 
