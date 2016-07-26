@@ -10,7 +10,7 @@ function mapStateToProps(state) {
 export default class ChartPage extends Component {
   render() {
     return (
-      <WorkoutChart workout={Spiral} />
+      <WorkoutChart workout={Spiral} title={'Downward Spiral'} />
     );
   }
 }

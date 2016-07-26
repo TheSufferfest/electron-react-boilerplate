@@ -30,7 +30,7 @@ export default class WorkoutChart extends Component {
     return (
       <div>
         <div className={styles.container}>
-          <h3>Your Sufferfest workout</h3>
+          <h3>Are you ready for {this.props.title}?</h3>
           <canvas id="workout" width="900" height="300"></canvas>
         </div>
       </div>
