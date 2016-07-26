@@ -10,9 +10,6 @@ export default class ChartRenderer {
   yStart(ftp) {
     return this.fullHeight - ftp 
   }
-  height(ftp) {
-    return ftp 
-  }
   renderText(canvas) {
     let totalTime = this.dataEnd.start / 60
     let totalTimeText = Math.floor(totalTime).toString() + ' mins'
