@@ -20,7 +20,6 @@ export default class WorkoutChart extends Component {
     let rawWorkout = this.props.workout.data
     let workoutLength = rawWorkout[rawWorkout.length - 1].start
     let sectionFactor = document.getElementById('workout').clientWidth / workoutLength
-    console.log('section factor: ' + sectionFactor)
     let workout = rawWorkout.map((data) => { return { 'start': Math.floor(data.start * sectionFactor), 'ftp': (data.ftp * 100) } })
     for (let i = 0; i < workout.length - 1; i++) {
       rawCanvas.fillRect(workout[i].start, this.yStart(workout[i].ftp), this.width(workout, i), workout[i].ftp)
