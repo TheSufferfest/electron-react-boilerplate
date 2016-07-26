@@ -28,7 +28,14 @@ export default class ChartRenderer {
   drawCanvas() {
     // set up the canvas and related variables
     let rawCanvas = this.canvasContainer.getContext('2d')
-    rawCanvas.fillStyle = 'rgba(255,99,132,0.8)'
+    var gradient = rawCanvas.createLinearGradient(0,0,0,300);
+    gradient.addColorStop(1, "white");
+    gradient.addColorStop(0.8, "yellow");
+    gradient.addColorStop(0.75, "orange");
+    gradient.addColorStop(0.65, "red");
+    gradient.addColorStop(0.25, "black");
+
+    rawCanvas.fillStyle = gradient
     this.sectionFactor = this.canvasContainer.clientWidth / this.dataEnd.start
     this.fullHeight = this.canvasContainer.clientHeight
 
