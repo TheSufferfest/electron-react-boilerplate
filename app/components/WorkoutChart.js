@@ -14,7 +14,7 @@ export default class WorkoutChart extends Component {
   height(ftp) {
     return ftp 
   }
-  componentDidMount() {
+  drawCanvas() {
     let rawCanvas = document.getElementById('workout').getContext('2d')
     rawCanvas.fillStyle = 'rgba(255,99,132,0.8)'
     let rawWorkout = this.props.workout.data
@@ -24,6 +24,9 @@ export default class WorkoutChart extends Component {
     for (let i = 0; i < workout.length - 1; i++) {
       rawCanvas.fillRect(workout[i].start, this.yStart(workout[i].ftp), this.width(workout, i), workout[i].ftp)
     }
+  }
+  componentDidMount() {
+    this.drawCanvas()
   }
   render() {
     return (
