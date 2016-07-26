@@ -4,6 +4,16 @@ export default class ChartRenderer {
     this.dataEnd = this.rawData[this.rawData.length - 1]
     this.canvasContainer = canvasContainer
   }
+  // builds a colourful gradient to show intensity of workouts
+  buildGradient(canvas) {
+    var gradient = canvas.createLinearGradient(0,0,0,300)
+    gradient.addColorStop(1, "white")
+    gradient.addColorStop(0.8, "yellow")
+    gradient.addColorStop(0.75, "orange")
+    gradient.addColorStop(0.65, "red")
+    gradient.addColorStop(0.25, "black")
+    return gradient
+  }
   // normalises a data item in the workout for appropriate values for rendering on screen
   normaliseDataItem(dataItem) {
     return { 'start': Math.floor(dataItem.start * this.sectionFactor), 'ftp': (dataItem.ftp * 100) }
@@ -28,14 +38,8 @@ export default class ChartRenderer {
   drawCanvas() {
     // set up the canvas and related variables
     let rawCanvas = this.canvasContainer.getContext('2d')
-    var gradient = rawCanvas.createLinearGradient(0,0,0,300);
-    gradient.addColorStop(1, "white");
-    gradient.addColorStop(0.8, "yellow");
-    gradient.addColorStop(0.75, "orange");
-    gradient.addColorStop(0.65, "red");
-    gradient.addColorStop(0.25, "black");
 
-    rawCanvas.fillStyle = gradient
+    rawCanvas.fillStyle = buildGradient(rawCanvas)
     this.sectionFactor = this.canvasContainer.clientWidth / this.dataEnd.start
     this.fullHeight = this.canvasContainer.clientHeight
 
