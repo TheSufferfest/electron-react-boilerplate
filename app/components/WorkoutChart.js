@@ -6,14 +6,14 @@ import ChartRenderer from '../utils/ChartRenderer.js'
 
 export default class WorkoutChart extends Component {
   componentDidMount() {
-    new ChartRenderer(this.props.workout.data, document.getElementById('workout')).drawCanvas()
+    new ChartRenderer(this.props.workout.data, this.workoutCanvas).drawCanvas()
   }
   render() {
     return (
       <div>
         <div className={styles.container}>
           <h3>Are you ready for {this.props.title}?</h3>
-          <canvas id="workout" width="900" height="300"></canvas>
+          <canvas ref={(ref) => this.workoutCanvas = ref } width="900" height="300"></canvas>
         </div>
       </div>
     );
