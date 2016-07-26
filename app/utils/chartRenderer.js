@@ -39,7 +39,7 @@ export default class ChartRenderer {
     // set up the canvas and related variables
     let rawCanvas = this.canvasContainer.getContext('2d')
 
-    rawCanvas.fillStyle = buildGradient(rawCanvas)
+    rawCanvas.fillStyle = this.buildGradient(rawCanvas)
     this.sectionFactor = this.canvasContainer.clientWidth / this.dataEnd.start
     this.fullHeight = this.canvasContainer.clientHeight
 
