@@ -11,6 +11,11 @@ export default class WorkoutChart extends Component {
   render() {
     return (
       <div>
+        <div className={styles.backButton}>
+          <Link to="/">
+            <i className="fa fa-arrow-left fa-3x" />
+          </Link>
+        </div>
         <div className={styles.container}>
           <h3>Are you ready for {this.props.title}?</h3>
           <canvas ref={(ref) => this.workoutCanvas = ref } width="900" height="300"></canvas>
