@@ -1,8 +1,8 @@
 export default class ChartRenderer {
   constructor(workoutData, canvasContainer) {
     this.rawData = workoutData
-    this.dataEnd = this.rawData[this.rawData.length - 1]
     this.canvasContainer = canvasContainer
+    this.sectionFactor = 1
   }
   // builds a colourful gradient to show intensity of workouts
   buildGradient(canvas) {
@@ -16,7 +16,16 @@ export default class ChartRenderer {
   }
   // normalises a data item in the workout for appropriate values for rendering on screen
   normaliseDataItem(dataItem) {
-    return { 'start': Math.floor(dataItem.start * this.sectionFactor), 'ftp': (dataItem.ftp * 100) }
+    return { 'start': Math.floor(dataItem.start * this.sectionFactor), 'ftp': Math.round(dataItem.ftp * 100) }
+  }
+  normaliseData() {
+    let mapped = this.rawData.map(this.normaliseDataItem, this)
+    for(let i = mapped.length - 1; i >= 0; i--) {
+      if(typeof(mapped[i].ftp) !== 'number' || isNaN(mapped[i].ftp)) {
+        mapped.splice(i, 1)
+      }
+    }
+    return mapped
   }
   // convenience method for getting the width of a particular bar
   width(data, currentIndex) {
@@ -36,6 +45,16 @@ export default class ChartRenderer {
   }
   // draws the entire workout chart
   drawCanvas() {
+    if(typeof(this.rawData) === undefined || this.rawData === null) {
+      return
+    }
+
+    if(typeof(this.canvasContainer) === undefined || this.canvasContainer === null) {
+      return
+    }
+
+    this.dataEnd = this.rawData[this.rawData.length - 1]
+
     // set up the canvas and related variables
     let rawCanvas = this.canvasContainer.getContext('2d')
 
@@ -44,7 +63,8 @@ export default class ChartRenderer {
     this.fullHeight = this.canvasContainer.clientHeight
 
     // map the data to good values for rendering and then render!
-    let workout = this.rawData.map(this.normaliseDataItem, this)
+    let workout = this.normaliseData()
+    //this.rawData.map(this.normaliseDataItem, this)
     for (let i = 0; i < workout.length - 1; i++) {
       rawCanvas.fillRect(workout[i].start, this.yStart(workout[i].ftp), this.width(workout, i), workout[i].ftp)
     }
