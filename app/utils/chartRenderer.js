@@ -64,7 +64,11 @@ export default class ChartRenderer {
 
     // map the data to good values for rendering and then render!
     let workout = this.normaliseData()
-    //this.rawData.map(this.normaliseDataItem, this)
+
+    // here, I'm doing a fairly run-of-the-mill iteration over points and drawing a rectangle for
+    // each.  There might be an efficiency improvement for drawing a base rectangle all the way
+    // along the chart for the lowest FTP value, and then only needing to draw the peaks of FTP
+    // values above the baseline FTP.
     for (let i = 0; i < workout.length - 1; i++) {
       rawCanvas.fillRect(workout[i].start, this.yStart(workout[i].ftp), this.width(workout, i), workout[i].ftp)
     }

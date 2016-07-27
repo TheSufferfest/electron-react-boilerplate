@@ -34,6 +34,9 @@ describe('drawCanvas', () => {
   })
 })
 describe('normaliseData', () => {
+  // this is an important part to test as any individual entry should probably not cause the whole
+  // rendering to fail.  To get a bit smarter, I would perhaps use adjacent valid values to fill out 
+  // any corrupt data points.
   it('handles malformed data items', () => {
     let data = [
       { start: 0, frrrp: 0.55 },
