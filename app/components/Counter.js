@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import styles from './Counter.css';
+import globalStyles from './Global.css';
 
 class Counter extends Component {
   static propTypes = {
@@ -15,7 +16,7 @@ class Counter extends Component {
     const { increment, incrementIfOdd, incrementAsync, decrement, counter } = this.props;
     return (
       <div>
-        <div className={styles.backButton}>
+        <div className={globalStyles.backButton}>
           <Link to="/">
             <i className="fa fa-arrow-left fa-3x" />
           </Link>
