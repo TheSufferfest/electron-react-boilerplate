@@ -35,3 +35,8 @@ a:hover {
   text-decoration: none;
   cursor: pointer;
 }
+
+#root,
+.wrapper {
+  height: 100%;
+}
