@@ -1,0 +1,15 @@
+.backButton {
+  position: absolute;
+}
+
+.container {
+  position: absolute;
+  top: 30%;
+}
+
+.chart {
+  background-color: #FFFFFF;
+  padding: 10px;
+  width: 870px;
+  height: 96px;
+}

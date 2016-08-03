@@ -1,4 +1,4 @@
-
+export const data = [
    {
       "type": "target",
       "start": 0,
@@ -299,4 +299,4 @@
       "start": 3327,
       "ftp": 0.5
    }
-]
+];
