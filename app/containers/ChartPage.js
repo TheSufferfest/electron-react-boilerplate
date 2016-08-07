@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import WorkoutChart from '../components/WorkoutChart';
 
-function mapStateToProps(state) {
-  return {
-
-  };
-}
 export default class ChartPage extends Component {
   render() {
     return (
-      <WorkoutChart />
+      <WorkoutChart url="data/DownwardSpiral.json" height="80" width="800" blockColor="#9411EE" lineColor="gray" textColor="white"/>
     );
   }
 }
