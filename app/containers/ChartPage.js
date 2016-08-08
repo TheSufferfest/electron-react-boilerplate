@@ -6,10 +6,11 @@ function mapStateToProps(state) {
 
   };
 }
+
 export default class ChartPage extends Component {
   render() {
     return (
-      <WorkoutChart />
+      <WorkoutChart url="app/data/DownwardSpiral.json" height="200" />
     );
   }
 }
