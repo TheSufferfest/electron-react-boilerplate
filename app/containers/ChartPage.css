@@ -1,0 +1,16 @@
+
+.link {
+	float: left;
+}
+
+.title {
+	text-align: center;
+}
+
+.form {
+	margin: auto;
+}
+
+.form select {
+	max-width: 200px;
+}
