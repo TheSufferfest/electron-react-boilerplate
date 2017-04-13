@@ -1,0 +1,17 @@
+.backButton {
+  position: absolute;
+}
+
+.container {
+  position: absolute;
+  top: 30%;
+  text-align: center;
+}
+
+.chart {
+  background: white;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  border: 10px solid white;
+  height: 200px;
+}
